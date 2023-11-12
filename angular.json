@@ -19,17 +19,16 @@
       "prefix": "tc",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/.htaccess",
               "src/favicon.ico",
               "src/assets"
             ],
@@ -44,8 +43,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -53,23 +52,17 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ],
-              "namedChunks": true,
-              "vendorChunk": true
+              ]
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -96,10 +89,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "treppenhausreinigung-creator:build:production"
+              "buildTarget": "treppenhausreinigung-creator:build:production"
             },
             "development": {
-              "browserTarget": "treppenhausreinigung-creator:build:development"
+              "buildTarget": "treppenhausreinigung-creator:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -107,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "treppenhausreinigung-creator:build"
+            "buildTarget": "treppenhausreinigung-creator:build"
           }
         },
         "test": {
