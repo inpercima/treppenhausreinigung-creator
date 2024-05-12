@@ -1,1 +1,19 @@
-<p>dashboard works!</p>
+<mat-card class="w-4/5 mx-auto">
+  <mat-card-content>
+     <form [formGroup]="form" novalidate>
+     <div class="flex gap-5 items-center">
+        <mat-form-field class="basis-11/12">
+          <mat-label>Test</mat-label>
+          <input matInput formControlName="filter" />
+        </mat-form-field>
+        <button class="flex-1" mat-raised-button color="primary" [disabled]="!this.form.valid">URL</button>
+      </div>
+    </form>
+    <div id="canvas">
+      <h1>Test pdf</h1>
+      <p>Test paragraph</p>
+    </div>
+    
+    <button (click)="generatePDF()">Convert to PDF</button>
+  </mat-card-content>
+</mat-card>
