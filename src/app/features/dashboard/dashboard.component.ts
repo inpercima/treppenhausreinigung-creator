@@ -48,8 +48,8 @@ export class DashboardComponent implements OnInit {
     html2canvas(element).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4'); // Portrait, millimeters, A4 size
-      let imgWidth = 208;
-      let imgHeight = (canvas.height * imgWidth) / canvas.width;
+      const imgWidth = 208;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
       pdf.addImage(imgData, 'PNG', 15, 15, imgWidth, imgHeight);
       pdf.save('converted-document.pdf');
