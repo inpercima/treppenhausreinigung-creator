@@ -2,6 +2,8 @@
 
 environment.dev.ts
 
+# environment.prod.ts is not listed here b/c this file is needed for automated build
+
 # end project specific
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,eclipse,intellij+all,angular
