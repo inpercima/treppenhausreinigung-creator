@@ -52,7 +52,7 @@ For the other options your app should run on a server which you like.
 pnpm build:dev
 
 # build and starts a server, rebuild after changes, reachable on http://localhost:4200/
-pnpm serve:dev
+pnpm start
 ```
 
 ### Package
