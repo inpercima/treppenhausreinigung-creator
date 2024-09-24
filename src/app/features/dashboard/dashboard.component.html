@@ -1,19 +1,55 @@
-<mat-card class="w-4/5 mx-auto">
+<mat-card class="w-7/12 mx-auto">
+  <mat-card-header>
+    <mat-card-title>Etagenbewohner</mat-card-title>
+  </mat-card-header>
   <mat-card-content>
-     <form [formGroup]="form" novalidate>
-     <div class="flex gap-5 items-center">
-        <mat-form-field class="basis-11/12">
-          <mat-label>Test</mat-label>
-          <input matInput formControlName="filter" />
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+      <div class="flex gap-5 items-center">
+        <mat-form-field class="basis-4/12">
+          <mat-label>Mietpartei links</mat-label>
+          <input matInput formControlName="tenantLeft" />
         </mat-form-field>
-        <button class="flex-1" mat-raised-button color="primary" [disabled]="!this.form.valid">URL</button>
+        <mat-form-field class="basis-4/12">
+          <mat-label>Mietpartei mitte</mat-label>
+          <input matInput formControlName="tenantMiddle" />
+        </mat-form-field>
+        <mat-form-field class="basis-4/12">
+          <mat-label>Mietpartei rechts</mat-label>
+          <input matInput formControlName="tenantRight" />
+        </mat-form-field>
+      </div>
+      <div class="flex">
+        <button class="flex-1" mat-raised-button color="primary" [disabled]="!this.form.valid">Jahresplan generieren</button>
       </div>
     </form>
     <div id="canvas">
-      <h1>Test pdf</h1>
-      <p>Test paragraph</p>
+      <h1>Treppenreinigung X. OG</h1>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Week Column -->
+        <ng-container matColumnDef="week">
+          <th mat-header-cell *matHeaderCellDef class="w-1/3">Woche</th>
+          <td mat-cell *matCellDef="let element">{{ element.week }}</td>
+        </ng-container>
+
+        <!-- Tenant Column -->
+        <ng-container matColumnDef="tenant">
+          <th mat-header-cell *matHeaderCellDef class="w-1/3">Mietpartei</th>
+          <td mat-cell *matCellDef="let element">{{ element.tenant }}</td>
+        </ng-container>
+
+        <!-- Completed Column -->
+        <ng-container matColumnDef="completed">
+          <th mat-header-cell *matHeaderCellDef class="w-1/3">Erledigt durch/am</th>
+          <td mat-cell *matCellDef="let element">{{ element.completed }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
     </div>
-    
-    <button (click)="generatePDF()">Convert to PDF</button>
+    <button mat-raised-button color="primary" (click)="generatePDF()">PDF generieren</button>
   </mat-card-content>
 </mat-card>
