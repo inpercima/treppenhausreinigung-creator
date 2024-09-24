@@ -18,6 +18,7 @@ export interface Row {
   selector: 'tc-dashboard',
   standalone: true,
   templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.css',
   imports: [MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatTableModule, ReactiveFormsModule],
 })
 export class DashboardComponent implements OnInit {
