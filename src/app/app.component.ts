@@ -1,4 +1,4 @@
-import { Component, Inject, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, inject } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 
@@ -16,9 +16,13 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
   imports: [MatButtonModule, MatDialogModule, MatToolbarModule, DashboardComponent],
 })
 export class AppComponent {
+  private dialog = inject(MatDialog);
+  private titleService = inject(Title);
+  private document = inject<Document>(DOCUMENT);
+
   public appname: string;
 
-  public constructor(private dialog: MatDialog, private titleService: Title, @Inject(DOCUMENT) private document: Document) {
+  public constructor() {
     this.appname = environment.appname;
     this.titleService.setTitle(this.appname);
     this.document.body.classList.add(`${environment.theme}-theme`);

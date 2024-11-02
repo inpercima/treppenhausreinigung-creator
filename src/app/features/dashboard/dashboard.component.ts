@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -22,12 +22,12 @@ export interface Row {
   imports: [MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatTableModule, ReactiveFormsModule],
 })
 export class DashboardComponent implements OnInit {
+  private formBuilder = inject(FormBuilder);
+
   form!: FormGroup;
 
   readonly displayedColumns: string[] = ['week', 'tenant', 'completed'];
   dataSource = new MatTableDataSource<Row>();
-
-  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
