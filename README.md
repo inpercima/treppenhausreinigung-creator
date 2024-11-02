@@ -14,9 +14,9 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Node, npm or pnpm
 
-* `node 20.15.1` or higher in combination with
-  * `npm 10.7.0` or higher or
-  * `pnpm 9.11.0` or higher, used in this repository
+* `node 22.11.0` or higher in combination with
+  * `npm 10.9.0` or higher or
+  * `pnpm 9.12.3` or higher, used in this repository
 
 ## Getting started
 

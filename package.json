@@ -46,7 +46,7 @@
     "typescript-eslint": "8.7.0"
   },
   "engines": {
-    "node": ">=20.15.1"
+    "node": ">=22.11.0"
   },
   "homepage": "https://github.com/inpercima/treppenhausreinigung-creator/",
   "license": "MIT",
