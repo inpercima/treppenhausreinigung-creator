@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
     const rows: Row[] = [];
     while (endDate > weekEndDate) {
       const test = {
-        week: format(weekStartDate, 'dd.MM.yyyy') + ' - ' + format(weekEndDate, 'dd.MM.yyyy'),
+        week: `${format(weekStartDate, 'dd.MM.yyyy')} - ${format(weekEndDate, 'dd.MM.yyyy')}`,
         tenant: emptyRow ? '' : 'Mieter',
         completed: '',
       } as Row;
@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
     const doc = new jsPDF('p', 'mm', 'a4'); // Portrait, millimeters, A4 size
 
     doc.html(element, {
-      callback: function (doc) {
+      callback: (doc) => {
         // Save the PDF
         doc.save('document-html.pdf');
       },
