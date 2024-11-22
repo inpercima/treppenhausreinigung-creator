@@ -12,7 +12,6 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
   selector: 'tc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  standalone: true,
   imports: [MatButtonModule, MatDialogModule, MatToolbarModule, DashboardComponent],
 })
 export class AppComponent {
