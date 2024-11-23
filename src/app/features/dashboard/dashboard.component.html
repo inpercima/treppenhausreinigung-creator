@@ -1,6 +1,6 @@
 <mat-card class="w-7/12 mx-auto">
   <mat-card-header>
-    <mat-card-title>Mietparteien</mat-card-title>
+    <mat-card-title>Mietinformationen</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
@@ -18,14 +18,35 @@
           <input matInput formControlName="tenantRight" />
         </mat-form-field>
       </div>
+
+      <div class="flex gap-5 items-center">
+        <mat-form-field class="basis-4/12">
+          <mat-label>Etage</mat-label>
+          <input matInput formControlName="floor" />
+        </mat-form-field>
+        <mat-form-field class="basis-4/12">
+          <mat-label>Zeitraum - Start</mat-label>
+          <input matInput formControlName="startDate" [matDatepicker]="pickerStart" />
+          <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+          <mat-datepicker #pickerStart disabled="false"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="basis-4/12">
+          <mat-label>Zeitraum - Ende</mat-label>
+          <input matInput formControlName="endDate" [matDatepicker]="pickerEnd" />
+          <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+          <mat-datepicker #pickerEnd disabled="false"></mat-datepicker>
+        </mat-form-field>
+      </div>
       <div class="flex">
         <button class="flex-1" mat-raised-button color="primary" [disabled]="!this.form.valid">Jahresplan generieren</button>
       </div>
     </form>
     <div id="canvas">
-      <h1>Treppenreinigung X. OG</h1>
+      <h1>
+        <span class="mr-4">Treppenreinigung</span>
+        {{ form.value.floor }}. OG
+      </h1>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
         <!-- Week Column -->
         <ng-container matColumnDef="week">
           <th mat-header-cell *matHeaderCellDef class="w-1/3">Woche</th>
@@ -48,6 +69,8 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
     </div>
-    <button mat-raised-button color="primary" (click)="generatePDF()">PDF generieren</button>
+    <div class="flex">
+      <button class="flex-1 mt-5" mat-raised-button color="primary" [disabled]="!isContent()" (click)="generatePDF()">PDF generieren</button>
+    </div>
   </mat-card-content>
 </mat-card>
