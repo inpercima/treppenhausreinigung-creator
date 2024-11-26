@@ -15,20 +15,20 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
   imports: [MatButtonModule, MatDialogModule, MatToolbarModule, DashboardComponent],
 })
 export class AppComponent {
-  private dialog = inject(MatDialog);
-  private titleService = inject(Title);
-  private document = inject<Document>(DOCUMENT);
+  readonly #dialog = inject(MatDialog);
+  readonly #titleService = inject(Title);
+  readonly #document = inject<Document>(DOCUMENT);
 
   public appname: string;
 
   public constructor() {
     this.appname = environment.appname;
-    this.titleService.setTitle(this.appname);
-    this.document.body.classList.add(`${environment.theme}-theme`);
+    this.#titleService.setTitle(this.appname);
+    this.#document.body.classList.add(`${environment.theme}-theme`);
   }
 
   openDialog(ref: TemplateRef<Element>): void {
-    this.dialog.open(ref, {
+    this.#dialog.open(ref, {
       maxWidth: '800px',
     });
   }

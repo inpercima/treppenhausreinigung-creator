@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import { DateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,10 +16,10 @@ import { Row } from './interfaces/row.interface';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   imports: [MatButtonModule, MatCardModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatTableModule, ReactiveFormsModule],
-  providers: [provideNativeDateAdapter()],
 })
 export class DashboardComponent {
   readonly #formBuilder = inject(NonNullableFormBuilder);
+  readonly #dateAdapter = inject<DateAdapter<Date>>(DateAdapter);
 
   form = this.#formBuilder.group({
     tenantLeft: this.#formBuilder.control(''),
@@ -29,6 +29,13 @@ export class DashboardComponent {
     startDate: this.#formBuilder.control(new Date(2025, 0, 6), [Validators.required]),
     endDate: this.#formBuilder.control(new Date(2025, 11, 27), [Validators.required]),
   });
+
+  constructor() {
+    this.#dateAdapter.setLocale('de-DE');
+    this.#dateAdapter.getFirstDayOfWeek = () => {
+      return 1;
+    };
+  }
 
   readonly displayedColumns: string[] = ['week', 'tenant', 'completed'];
   dataSource = new MatTableDataSource<Row>();
