@@ -1,3 +1,13 @@
 tr {
-  height: 25px;
+  height: 17px;
+  font-size: 12px;
+  line-height: normal;
+}
+
+.mat-mdc-table {
+  border: 1px solid black;
+}
+
+.mat-mdc-cell:not(:last-child), .mat-mdc-header-cell:not(:last-child) {
+  border-right: 1px solid black;
 }
