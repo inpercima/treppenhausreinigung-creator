@@ -27,7 +27,7 @@ export class DashboardComponent {
     tenantRight: this.#formBuilder.control(''),
     floor: this.#formBuilder.control(1, [Validators.required]),
     startDate: this.#formBuilder.control(new Date(2025, 0, 6), [Validators.required]),
-    endDate: this.#formBuilder.control(new Date(2025, 11, 27), [Validators.required]),
+    endDate: this.#formBuilder.control(new Date(2025, 11, 28), [Validators.required]),
   });
 
   constructor() {

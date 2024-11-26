@@ -1,5 +1,6 @@
 <mat-toolbar color="primary" class="mat-elevation-z4 justify-between">
-  {{ appname }}
+  <span class="hidden sm:block">{{ appname }}</span>
+  <span class="sm:hidden">APP</span>
   <div>
     <button mat-button (click)="openDialog(dialog)">APP INFO</button>
     |
