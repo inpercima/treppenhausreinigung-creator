@@ -98,7 +98,7 @@ export class DashboardComponent {
         // Save the PDF
         doc.save('treppenreinigung-plan.pdf');
       },
-      margin: [10, 10, 10, 10],
+      margin: [0, 10, 5, 10],
       autoPaging: 'text',
       x: 0,
       y: 0,

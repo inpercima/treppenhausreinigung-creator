@@ -42,10 +42,13 @@
       </div>
     </form>
     <div id="canvas">
-      <h2>
-        <span class="mr-4">Treppenreinigung</span>
-        {{ form.value.floor }}. OG
-      </h2>
+      <div class="flex justify-between">
+        <h2 class="mt-10">
+          <span class="mr-4">Treppenreinigung</span>
+          {{ form.value.floor }}. OG
+        </h2>
+        <img id="image" class="my-4 hidden sm:block sm:h-24" src="/treppenhaus.png" alt="Treppe mit Wischer" />
+      </div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- Week Column -->
         <ng-container matColumnDef="week">
