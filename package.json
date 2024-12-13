@@ -7,15 +7,15 @@
     }
   ],
   "dependencies": {
-    "@angular/animations": "19.0.3",
-    "@angular/cdk": "19.0.2",
-    "@angular/common": "19.0.3",
-    "@angular/compiler": "19.0.3",
-    "@angular/core": "19.0.3",
-    "@angular/forms": "19.0.3",
-    "@angular/material": "19.0.2",
-    "@angular/platform-browser": "19.0.3",
-    "@angular/platform-browser-dynamic": "19.0.3",
+    "@angular/animations": "19.0.4",
+    "@angular/cdk": "19.0.3",
+    "@angular/common": "19.0.4",
+    "@angular/compiler": "19.0.4",
+    "@angular/core": "19.0.4",
+    "@angular/forms": "19.0.4",
+    "@angular/material": "19.0.3",
+    "@angular/platform-browser": "19.0.4",
+    "@angular/platform-browser-dynamic": "19.0.4",
     "date-fns": "4.1.0",
     "jspdf": "2.5.2",
     "material-icons": "1.13.12",
@@ -25,12 +25,12 @@
   },
   "description": "The app to create the staircase cleaning plan.",
   "devDependencies": {
-    "@angular-devkit/build-angular": "19.0.4",
-    "@angular/cli": "19.0.4",
-    "@angular/compiler-cli": "19.0.3",
+    "@angular-devkit/build-angular": "19.0.5",
+    "@angular/cli": "19.0.5",
+    "@angular/compiler-cli": "19.0.4",
     "@cypress/schematic": "2.5.2",
     "@types/jasmine": "5.1.5",
-    "angular-eslint": "19.0.1",
+    "angular-eslint": "19.0.2",
     "autoprefixer": "10.4.20",
     "cypress": "13.16.1",
     "eslint": "9.16.0",
@@ -43,7 +43,7 @@
     "postcss": "8.4.49",
     "tailwindcss": "3.4.16",
     "typescript": "5.6.3",
-    "typescript-eslint": "8.17.0"
+    "typescript-eslint": "8.18.0"
   },
   "engines": {
     "node": ">=22.11.0"
