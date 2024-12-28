@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { addDays, format } from 'date-fns';
 import jsPDF from 'jspdf';
+import { dateRangeValidator } from './date-range.validator';
 import { Row } from './interfaces/row.interface';
 
 @Component({
@@ -21,20 +22,27 @@ export class DashboardComponent {
   readonly #formBuilder = inject(NonNullableFormBuilder);
   readonly #dateAdapter = inject<DateAdapter<Date>>(DateAdapter);
 
-  form = this.#formBuilder.group({
-    tenantLeft: this.#formBuilder.control(''),
-    tenantMiddle: this.#formBuilder.control(''),
-    tenantRight: this.#formBuilder.control(''),
-    floor: this.#formBuilder.control('1', [Validators.required]),
-    startDate: this.#formBuilder.control(new Date(2025, 0, 6), [Validators.required]),
-    endDate: this.#formBuilder.control(new Date(2025, 11, 29), [Validators.required]),
-  });
+  form = this.#formBuilder.group(
+    {
+      tenantLeft: this.#formBuilder.control(''),
+      tenantMiddle: this.#formBuilder.control(''),
+      tenantRight: this.#formBuilder.control(''),
+      floor: this.#formBuilder.control('1', [Validators.required]),
+      startDate: this.#formBuilder.control(new Date(2025, 0, 6), [Validators.required]),
+      endDate: this.#formBuilder.control(new Date(2025, 11, 29), [Validators.required]),
+    },
+    { validators: dateRangeValidator() }
+  );
 
   constructor() {
     this.#dateAdapter.setLocale('de-DE');
     this.#dateAdapter.getFirstDayOfWeek = () => {
       return 1;
     };
+
+    this.form.valueChanges.subscribe((x) => {
+      console.log(this.form.errors?.['dateRange']);
+    });
   }
 
   readonly displayedColumns: string[] = ['week', 'tenant', 'completed'];

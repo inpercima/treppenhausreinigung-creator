@@ -36,10 +36,13 @@
           <input matInput formControlName="endDate" [matDatepicker]="pickerEnd" />
           <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
           <mat-datepicker #pickerEnd disabled="false"></mat-datepicker>
+          @if(form.hasError('dateRange')) {
+            <mat-error>Maximal 52 Wochen Zeitspanne sind erlaubt</mat-error>
+          }
         </mat-form-field>
       </div>
       <div class="flex">
-        <button class="flex-1" mat-raised-button [disabled]="!this.form.valid">Jahresplan generieren</button>
+        <button class="flex-1" mat-raised-button [disabled]="!form.valid">Jahresplan generieren</button>
       </div>
     </form>
     <div id="canvas">
