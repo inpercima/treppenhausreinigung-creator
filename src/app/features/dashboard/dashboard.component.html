@@ -23,6 +23,7 @@
         <mat-form-field class="w-full sm:basis-4/12">
           <mat-label>Etage</mat-label>
           <input matInput formControlName="floor" />
+          <mat-hint>Nutze eine 0 für EG statt OG für den Titel</mat-hint>
         </mat-form-field>
         <mat-form-field class="w-full sm:basis-4/12">
           <mat-label>Zeitraum - Start</mat-label>
@@ -38,14 +39,15 @@
         </mat-form-field>
       </div>
       <div class="flex">
-        <button class="flex-1" mat-raised-button color="primary" [disabled]="!this.form.valid">Jahresplan generieren</button>
+        <button class="flex-1" mat-raised-button [disabled]="!this.form.valid">Jahresplan generieren</button>
       </div>
     </form>
     <div id="canvas">
       <div class="flex justify-between">
         <h2 class="mt-10">
           <span class="mr-4">Treppenreinigung</span>
-          {{ form.value.floor }}. OG
+          @if(form.value.floor === '0') { EG } @else {
+          {{ form.value.floor }}. OG }
         </h2>
         <img id="image" class="my-4 hidden sm:block sm:h-24" src="/treppenhaus.png" alt="Treppe mit Wischer" />
       </div>
@@ -73,7 +75,7 @@
       </table>
     </div>
     <div class="flex">
-      <button class="flex-1 mt-5" mat-raised-button color="primary" [disabled]="!isContent()" (click)="generatePDF()">PDF generieren</button>
+      <button class="flex-1 mt-5" mat-raised-button [disabled]="!isContent()" (click)="generatePDF()">PDF generieren</button>
     </div>
   </mat-card-content>
 </mat-card>

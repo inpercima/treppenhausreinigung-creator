@@ -19,7 +19,7 @@ export class AppComponent {
   readonly #titleService = inject(Title);
   readonly #document = inject<Document>(DOCUMENT);
 
-  public appname: string;
+  appname: string;
 
   public constructor() {
     this.appname = environment.appname;

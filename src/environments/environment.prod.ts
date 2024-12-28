@@ -3,5 +3,5 @@ export const environment = {
   appname: 'Treppenhausreinigung creator app',
   defaultRoute: 'dashboard',
   production: true,
-  theme: 'indigo-pink',
+  theme: 'azure-blue',
 };

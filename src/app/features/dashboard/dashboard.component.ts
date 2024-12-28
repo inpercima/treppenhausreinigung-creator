@@ -25,7 +25,7 @@ export class DashboardComponent {
     tenantLeft: this.#formBuilder.control(''),
     tenantMiddle: this.#formBuilder.control(''),
     tenantRight: this.#formBuilder.control(''),
-    floor: this.#formBuilder.control(1, [Validators.required]),
+    floor: this.#formBuilder.control('1', [Validators.required]),
     startDate: this.#formBuilder.control(new Date(2025, 0, 6), [Validators.required]),
     endDate: this.#formBuilder.control(new Date(2025, 11, 29), [Validators.required]),
   });
