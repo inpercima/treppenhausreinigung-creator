@@ -2,11 +2,18 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { differenceInWeeks } from 'date-fns';
 
 export function dateRangeValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const startDate = control.get('startDate')?.value;
-    const endDate = control.get('endDate')?.value;
+  return (group: AbstractControl): ValidationErrors | null => {
+    const startDate = group.get('startDate')?.value;
+    const endDate = group.get('endDate');
+    const endDateValue = endDate?.value;
     const MAX_WEEK_SIZE = 52;
 
-    return differenceInWeeks(endDate, startDate) > MAX_WEEK_SIZE ? { dateRange: true } : null;
+    if (differenceInWeeks(endDateValue, startDate) > MAX_WEEK_SIZE) {
+      endDate!.setErrors({ dateRange: true });
+    } else {
+      endDate!.setErrors(null);
+    }
+
+    return null;
   };
 }
