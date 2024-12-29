@@ -8,6 +8,10 @@ tr {
   border: 1px solid black;
 }
 
+th, td {
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
 .mat-mdc-cell:not(:last-child), .mat-mdc-header-cell:not(:last-child) {
   border-right: 1px solid black;
 }
