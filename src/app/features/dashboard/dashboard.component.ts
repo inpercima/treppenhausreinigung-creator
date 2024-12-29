@@ -39,10 +39,6 @@ export class DashboardComponent {
     this.#dateAdapter.getFirstDayOfWeek = () => {
       return 1;
     };
-
-    this.form.valueChanges.subscribe((x) => {
-      console.log(this.form.errors?.['dateRange']);
-    });
   }
 
   readonly displayedColumns: string[] = ['week', 'tenant', 'completed'];
