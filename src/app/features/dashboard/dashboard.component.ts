@@ -92,14 +92,15 @@ export class DashboardComponent {
     const img = new Image();
     img.src = 'treppenhaus.png';
     const pageSize = doc.internal.pageSize;
-    doc.addImage(img, 'png', pageSize.getWidth() - 78, 5, 68, 28);
+    doc.addImage(img, 'png', pageSize.getWidth() - 78, 5, 68, 25);
 
     autoTable(doc, {
       head: [{ week: 'Woche', tenant: 'Mietpartei', completed: 'Erledigt durch/am' }],
       body: rows,
-      styles: { cellPadding: 0.8, fontSize: 8 },
-      startY: 35,
-      margin: { left: 10, right: 10 },
+      styles: { valign: 'middle', cellPadding: 0.4, fontSize: 10 },
+      startY: 32,
+      margin: { left: 10, right: 10, bottom: 5 },
+      theme: 'grid',
     });
 
     doc.save('treppenreinigung-plan.pdf');
