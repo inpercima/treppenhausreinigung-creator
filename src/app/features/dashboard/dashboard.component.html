@@ -35,7 +35,7 @@
           <mat-label>Zeitraum - Ende</mat-label>
           <input matInput formControlName="endDate" [matDatepicker]="pickerEnd" />
           @if(form.controls['endDate'].hasError('dateRange')) {
-            <mat-error>Maximal 52 Wochen Zeitspanne sind erlaubt</mat-error>
+          <mat-error>Maximal 52 Wochen Zeitspanne sind erlaubt</mat-error>
           }
           <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
           <mat-datepicker #pickerEnd disabled="false"></mat-datepicker>

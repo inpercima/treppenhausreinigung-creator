@@ -4,8 +4,16 @@
   <div>
     <button mat-button (click)="openDialog(dialog)">APP INFO</button>
     |
-    <a mat-button href="https://github.com/inpercima/treppenhausreinigung-creator" target="_blank">
-      <img class="github-link" alt="GitHub Repository" src="github-mark-white.svg" />
+    <a
+      mat-button
+      href="https://github.com/inpercima/treppenhausreinigung-creator"
+      aria-label="GitHub Repository"
+      title="Go to project on Github"
+      target="_blank"
+    >
+      <span matButtonIcon>
+        <img class="github-link" alt="GitHub Repository" src="github-mark.svg" />
+      </span>
       GitHub
     </a>
   </div>
