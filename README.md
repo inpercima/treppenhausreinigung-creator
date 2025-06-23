@@ -10,13 +10,13 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `@angular/cli 19.1.8` or higher
+* `@angular/cli 20.0.3` or higher
 
 ### Node, npm or pnpm
 
-* `node 22.14.0` or higher in combination with
+* `node 22.16.0` or higher in combination with
   * `npm 10.9.2` or higher or
-  * `pnpm 10.4.1` or higher, used in this repository
+  * `pnpm 10.12.2` or higher, used in this repository
 
 ## Getting started
 

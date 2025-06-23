@@ -46,7 +46,7 @@
     "typescript-eslint": "8.34.1"
   },
   "engines": {
-    "node": ">=22.14.0"
+    "node": ">=22.16.0"
   },
   "homepage": "https://treppenhausreinigung-creator.inpercima.net/",
   "license": "MIT",
