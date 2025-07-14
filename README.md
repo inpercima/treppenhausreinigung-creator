@@ -10,7 +10,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `@angular/cli 20.0.3` or higher
+* `@angular/cli 20.1.0` or higher
 
 ### Node, npm or pnpm
 
