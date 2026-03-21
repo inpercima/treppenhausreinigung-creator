@@ -42,43 +42,8 @@
         </mat-form-field>
       </div>
       <div class="flex">
-        <button class="flex-1" mat-raised-button [disabled]="!form.valid">Jahresplan generieren</button>
+        <button class="flex-1" mat-raised-button [disabled]="!form.valid">Jahresplan als PDF generieren</button>
       </div>
     </form>
-    <div id="canvas">
-      <div class="flex justify-between">
-        <h2 class="mt-10">
-          <span class="mr-4">Treppenreinigung</span>
-          @if(form.value.floor === '0') { EG } @else {
-          {{ form.value.floor }}. OG }
-        </h2>
-        <img id="image" class="my-4 hidden sm:block sm:h-24" src="/treppenhaus.png" alt="Treppe mit Wischer" />
-      </div>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!-- Week Column -->
-        <ng-container matColumnDef="week">
-          <th mat-header-cell *matHeaderCellDef class="w-1/3">Woche</th>
-          <td mat-cell *matCellDef="let element">{{ element.week }}</td>
-        </ng-container>
-
-        <!-- Tenant Column -->
-        <ng-container matColumnDef="tenant">
-          <th mat-header-cell *matHeaderCellDef class="w-1/3">Mietpartei</th>
-          <td mat-cell *matCellDef="let element">{{ element.tenant }}</td>
-        </ng-container>
-
-        <!-- Completed Column -->
-        <ng-container matColumnDef="completed">
-          <th mat-header-cell *matHeaderCellDef class="w-1/3">Erledigt durch/am</th>
-          <td mat-cell *matCellDef="let element">{{ element.completed }}</td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-    </div>
-    <div class="flex">
-      <button class="flex-1 mt-5" mat-raised-button [disabled]="!isContent()" (click)="generatePDF()">PDF generieren</button>
-    </div>
   </mat-card-content>
 </mat-card>
