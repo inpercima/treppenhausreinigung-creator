@@ -1,9 +1,9 @@
-import { Component, inject } from '@angular/core';
+import 'cally';
+
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { DateAdapter } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { addDays, format } from 'date-fns';
@@ -15,11 +15,11 @@ import { dateRangeValidator } from './date-range.validator';
   selector: 'tc-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
-  imports: [MatButtonModule, MatCardModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  imports: [MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardComponent {
   readonly #formBuilder = inject(NonNullableFormBuilder);
-  readonly #dateAdapter = inject<DateAdapter<Date>>(DateAdapter);
 
   form = this.#formBuilder.group(
     {
@@ -33,11 +33,18 @@ export class DashboardComponent {
     { validators: dateRangeValidator() }
   );
 
-  constructor() {
-    this.#dateAdapter.setLocale('de-DE');
-    this.#dateAdapter.getFirstDayOfWeek = () => {
-      return 1;
-    };
+  toIsoDate(date: Date): string {
+    return date.toISOString().substring(0, 10);
+  }
+
+  onStartDateChange(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.form.controls['startDate'].setValue(new Date(value + 'T00:00:00'));
+  }
+
+  onEndDateChange(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.form.controls['endDate'].setValue(new Date(value + 'T00:00:00'));
   }
 
   onSubmit(): void {

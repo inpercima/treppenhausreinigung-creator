@@ -25,21 +25,39 @@
           <input matInput formControlName="floor" />
           <mat-hint>Nutze eine 0 für EG statt OG für den Titel</mat-hint>
         </mat-form-field>
-        <mat-form-field class="w-full sm:basis-4/12">
-          <mat-label>Zeitraum - Start</mat-label>
-          <input matInput formControlName="startDate" [matDatepicker]="pickerStart" />
-          <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
-          <mat-datepicker #pickerStart disabled="false"></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field class="w-full sm:basis-4/12">
-          <mat-label>Zeitraum - Ende</mat-label>
-          <input matInput formControlName="endDate" [matDatepicker]="pickerEnd" />
-          @if(form.controls['endDate'].hasError('dateRange')) {
-          <mat-error>Maximal 52 Wochen Zeitspanne sind erlaubt</mat-error>
-          }
-          <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
-          <mat-datepicker #pickerEnd disabled="false"></mat-datepicker>
-        </mat-form-field>
+        <div class="w-full sm:basis-4/12 flex flex-col gap-1">
+          <span class="label text-sm">Zeitraum - Start</span>
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="input input-bordered w-full flex items-center cursor-pointer">
+              {{ toIsoDate(form.controls['startDate'].value) }}
+            </div>
+            <div tabindex="0" class="dropdown-content z-10 shadow bg-base-100 rounded-box p-2 mt-1">
+              <calendar-date
+                [attr.value]="toIsoDate(form.controls['startDate'].value)"
+                (change)="onStartDateChange($event)">
+                <calendar-month locale="de-DE" first-day-of-week="1"></calendar-month>
+              </calendar-date>
+            </div>
+          </div>
+        </div>
+        <div class="w-full sm:basis-4/12 flex flex-col gap-1">
+          <span class="label text-sm">Zeitraum - Ende</span>
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="input input-bordered w-full flex items-center cursor-pointer">
+              {{ toIsoDate(form.controls['endDate'].value) }}
+            </div>
+            <div tabindex="0" class="dropdown-content z-10 shadow bg-base-100 rounded-box p-2 mt-1">
+              <calendar-date
+                [attr.value]="toIsoDate(form.controls['endDate'].value)"
+                (change)="onEndDateChange($event)">
+                <calendar-month locale="de-DE" first-day-of-week="1"></calendar-month>
+              </calendar-date>
+            </div>
+            @if(form.controls['endDate'].hasError('dateRange')) {
+              <p class="text-error text-xs mt-1">Maximal 52 Wochen Zeitspanne sind erlaubt</p>
+            }
+          </div>
+        </div>
       </div>
       <div class="flex">
         <button class="flex-1" mat-raised-button [disabled]="!form.valid">Jahresplan als PDF generieren</button>
