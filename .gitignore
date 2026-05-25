@@ -1,21 +1,9 @@
-# begin project specific
+# Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,eclipse,intellij+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode,eclipse,intellij+all
 
-environment.dev.ts
-
-# environment.prod.ts is not listed here b/c this file is needed for automated build
-
-# end project specific
-
-# Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,eclipse,intellij+all,angular
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode,eclipse,intellij+all,angular
-
-### Angular ###
-## Angular ##
 # compiled output
 dist/
 tmp/
-app/**/*.js
-app/**/*.js.map
 
 # dependencies
 node_modules/
@@ -32,11 +20,6 @@ libpeerconnection.log/
 npm-debug.log
 testem.log
 typings/
-.angular/
-
-# e2e
-e2e/*.js
-e2e/*.map
 
 # System Files
 .DS_Store/
