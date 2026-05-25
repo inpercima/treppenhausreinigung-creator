@@ -10,9 +10,9 @@ Built with plain JavaScript, [Tailwind CSS](https://tailwindcss.com/) and [daisy
 
 ### Node, npm or pnpm
 
-* `node 22.20.0` or higher in combination with
-  * `npm 10.9.3` or higher or
-  * `pnpm 10.18.2` or higher, used in this repository
+* `node 24.16.0` or higher in combination with
+  * `npm 11.13.0` or higher or
+  * `pnpm 11.3.0` or higher, used in this repository
 
 ## Getting started
 
