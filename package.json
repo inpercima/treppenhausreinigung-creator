@@ -30,7 +30,6 @@
   "repository": "https://github.com/inpercima/treppenhausreinigung-creator/",
   "scripts": {
     "build": "vite build",
-    "dev": "vite",
     "lint": "eslint src/**/*.js",
     "preview": "vite preview",
     "start": "vite --open"
