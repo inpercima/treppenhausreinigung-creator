@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" data-theme="corporate">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>Treppenhausreinigung creator app</title>
+</head>
+<body class="min-h-screen bg-base-200 overflow-y-scroll">
+  <!-- Navbar -->
+  <div class="navbar bg-primary text-primary-content shadow-lg">
+    <div class="flex-1">
+      <span class="text-xl font-semibold hidden sm:block">Treppenhausreinigung creator app</span>
+      <span class="text-xl font-semibold sm:hidden">APP</span>
+    </div>
+    <div class="flex-none gap-1">
+      <button id="btn-info" class="btn btn-ghost">APP INFO</button>
+      <span class="opacity-60">|</span>
+      <a
+        class="btn btn-ghost"
+        href="https://github.com/inpercima/treppenhausreinigung-creator"
+        aria-label="GitHub Repository"
+        title="Go to project on Github"
+        target="_blank"
+      >
+        <img class="w-6 h-6" alt="GitHub Repository" src="/github-mark-white.svg" />
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Info Modal -->
+  <dialog id="info-modal" class="modal">
+    <div class="modal-box max-w-2xl">
+      <h3 class="text-lg font-bold">Overview</h3>
+      <p class="py-4">
+        Die kleine App ermöglicht das Anlegen eines Treppenhausreinigungsplans für ein komplettes Jahr.
+        <br>
+        Es können zwei oder drei Parteien je Etage eingetragen und die Zeiträume gewählt werden.
+      </p>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
+
+  <!-- Dashboard Card -->
+  <div class="flex justify-center mt-5 px-4">
+    <div class="card bg-base-100 shadow-xl w-full md:w-7/12">
+      <div class="card-body">
+        <h2 class="card-title">Mietinformationen</h2>
+        <form id="dashboard-form" novalidate>
+          <div class="flex flex-col sm:flex-row sm:gap-5">
+            <div class="form-control w-full sm:basis-4/12">
+              <label class="label" for="tenantLeft">Mietpartei links</label>
+              <input id="tenantLeft" name="tenantLeft" type="text" class="input input-bordered w-full" />
+            </div>
+            <div class="form-control w-full sm:basis-4/12">
+              <label class="label" for="tenantMiddle">Mietpartei mitte</label>
+              <input id="tenantMiddle" name="tenantMiddle" type="text" class="input input-bordered w-full" />
+            </div>
+            <div class="form-control w-full sm:basis-4/12">
+              <label class="label" for="tenantRight">Mietpartei rechts</label>
+              <input id="tenantRight" name="tenantRight" type="text" class="input input-bordered w-full" />
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:gap-5 mt-2">
+            <div class="form-control w-full sm:basis-4/12">
+              <label class="label" for="floor">Etage</label>
+              <input id="floor" name="floor" type="text" value="1" required class="input input-bordered w-full" />
+              <label class="label">
+                <span class="label-text-alt">Nutze eine 0 für EG statt OG für den Titel</span>
+              </label>
+            </div>
+            <div class="w-full sm:basis-4/12 flex flex-col gap-1">
+              <span class="label text-sm">Zeitraum - Start</span>
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="input input-bordered w-full flex items-center cursor-pointer" id="startDateDisplay">
+                  2025-01-06
+                </div>
+                <div tabindex="0" class="dropdown-content z-10 shadow bg-base-100 rounded-box p-2 mt-1">
+                  <calendar-date id="startDatePicker" value="2025-01-06">
+                    <calendar-month locale="de-DE" first-day-of-week="1"></calendar-month>
+                  </calendar-date>
+                </div>
+              </div>
+              <input type="hidden" id="startDate" name="startDate" value="2025-01-06" required />
+            </div>
+            <div class="w-full sm:basis-4/12 flex flex-col gap-1">
+              <span class="label text-sm">Zeitraum - Ende</span>
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="input input-bordered w-full flex items-center cursor-pointer" id="endDateDisplay">
+                  2025-12-29
+                </div>
+                <div tabindex="0" class="dropdown-content z-10 shadow bg-base-100 rounded-box p-2 mt-1">
+                  <calendar-date id="endDatePicker" value="2025-12-29">
+                    <calendar-month locale="de-DE" first-day-of-week="1"></calendar-month>
+                  </calendar-date>
+                </div>
+              </div>
+              <label class="label">
+                <span id="date-error" class="label-text-alt text-error hidden">Maximal 52 Wochen Zeitspanne sind erlaubt</span>
+              </label>
+              <input type="hidden" id="endDate" name="endDate" value="2025-12-29" required />
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <button id="btn-submit" type="submit" class="btn btn-primary w-full">Jahresplan als PDF generieren</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
