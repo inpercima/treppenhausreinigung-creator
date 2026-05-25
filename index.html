@@ -5,6 +5,7 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/src/style.css">
   <title>Treppenhausreinigung creator app</title>
 </head>
 <body class="min-h-screen bg-base-200 overflow-y-scroll">
@@ -80,12 +81,26 @@
               </label>
             </div>
             <div class="form-control w-full sm:basis-4/12">
-              <label class="label" for="startDate">Zeitraum - Start</label>
-              <input id="startDate" name="startDate" type="date" value="2025-01-06" required class="input input-bordered w-full" />
+              <label class="label" for="startDateBtn">Zeitraum - Start</label>
+              <div class="dropdown w-full">
+                <button id="startDateBtn" type="button" tabindex="0" class="input input-bordered w-full text-left">06.01.2025</button>
+                <div tabindex="0" class="dropdown-content shadow bg-base-100 rounded-box p-2 mt-1">
+                  <calendar-date id="startDate" value="2025-01-06" locale="de-DE" first-day-of-week="1">
+                    <calendar-month></calendar-month>
+                  </calendar-date>
+                </div>
+              </div>
             </div>
             <div class="form-control w-full sm:basis-4/12">
-              <label class="label" for="endDate">Zeitraum - Ende</label>
-              <input id="endDate" name="endDate" type="date" value="2025-12-29" required class="input input-bordered w-full" />
+              <label class="label" for="endDateBtn">Zeitraum - Ende</label>
+              <div class="dropdown w-full">
+                <button id="endDateBtn" type="button" tabindex="0" class="input input-bordered w-full text-left">29.12.2025</button>
+                <div tabindex="0" class="dropdown-content shadow bg-base-100 rounded-box p-2 mt-1">
+                  <calendar-date id="endDate" value="2025-12-29" locale="de-DE" first-day-of-week="1">
+                    <calendar-month></calendar-month>
+                  </calendar-date>
+                </div>
+              </div>
               <label class="label">
                 <span id="date-error" class="label-text-alt text-error hidden">Maximal 52 Wochen Zeitspanne sind erlaubt</span>
               </label>

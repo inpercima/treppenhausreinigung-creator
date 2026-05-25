@@ -1,4 +1,4 @@
-import './style.css';
+import 'cally';
 import { addDays, differenceInWeeks, format } from 'date-fns';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -10,17 +10,40 @@ const btnInfo = document.getElementById('btn-info');
 const infoModal = document.getElementById('info-modal');
 const btnSubmit = document.getElementById('btn-submit');
 const dateError = document.getElementById('date-error');
-const startDateInput = document.getElementById('startDate');
-const endDateInput = document.getElementById('endDate');
+const startDateBtn = document.getElementById('startDateBtn');
+const endDateBtn = document.getElementById('endDateBtn');
+const startDatePicker = document.getElementById('startDate');
+const endDatePicker = document.getElementById('endDate');
 const floorInput = document.getElementById('floor');
 
 btnInfo.addEventListener('click', () => {
   infoModal.showModal();
 });
 
+function formatDateDisplay(isoValue) {
+  return isoValue ? format(new Date(isoValue), 'dd.MM.yyyy') : '';
+}
+
+function closeDropdown(element) {
+  element.closest('.dropdown').blur();
+  document.activeElement.blur();
+}
+
+startDatePicker.addEventListener('change', () => {
+  startDateBtn.textContent = formatDateDisplay(startDatePicker.value);
+  closeDropdown(startDatePicker);
+  validateForm();
+});
+
+endDatePicker.addEventListener('change', () => {
+  endDateBtn.textContent = formatDateDisplay(endDatePicker.value);
+  closeDropdown(endDatePicker);
+  validateForm();
+});
+
 function validateForm() {
-  const startDate = startDateInput.value ? new Date(startDateInput.value) : null;
-  const endDate = endDateInput.value ? new Date(endDateInput.value) : null;
+  const startDate = startDatePicker.value ? new Date(startDatePicker.value) : null;
+  const endDate = endDatePicker.value ? new Date(endDatePicker.value) : null;
   const floor = floorInput.value.trim();
 
   let valid = true;
@@ -49,8 +72,8 @@ form.addEventListener('submit', (e) => {
   const tenantMiddle = document.getElementById('tenantMiddle').value.trim();
   const tenantRight = document.getElementById('tenantRight').value.trim();
   const floor = floorInput.value.trim();
-  const startDate = new Date(startDateInput.value);
-  const endDate = new Date(endDateInput.value);
+  const startDate = new Date(startDatePicker.value);
+  const endDate = new Date(endDatePicker.value);
 
   const tenants = [tenantLeft, tenantMiddle, tenantRight].filter(Boolean);
   const rows = defineRows(tenants, startDate, endDate);
@@ -73,7 +96,7 @@ function defineRows(tenants, startDate, endDate) {
     rows.push(row);
 
     if (!emptyRow) {
-      index = index < tenants.length - 1 ? ++index : 0;
+      index = index < tenants.length - 1 ? index + 1 : 0;
     }
     emptyRow = !emptyRow;
     weekStartDate = addDays(weekEndDate, 1);
