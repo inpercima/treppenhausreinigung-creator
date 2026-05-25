@@ -24,7 +24,7 @@ jobs:
         cache: 'pnpm'
     - name: Install and Build
       run: |
-        pnpm install
+        pnpm install --frozen-lockfile
         pnpm build
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
