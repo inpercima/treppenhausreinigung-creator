@@ -7,18 +7,18 @@
     }
   ],
   "dependencies": {
-    "date-fns": "4.1.0",
+    "date-fns": "4.3.0",
     "jspdf": "4.2.1",
-    "jspdf-autotable": "5.0.7"
+    "jspdf-autotable": "5.0.8"
   },
   "description": "The app to create the staircase cleaning plan.",
   "devDependencies": {
-    "@tailwindcss/vite": "4.2.2",
-    "cypress": "15.13.1",
-    "daisyui": "5.5.19",
-    "eslint": "10.2.0",
-    "tailwindcss": "4.2.2",
-    "vite": "8.0.8"
+    "@tailwindcss/vite": "4.3.0",
+    "cypress": "15.15.0",
+    "daisyui": "5.5.20",
+    "eslint": "10.4.0",
+    "tailwindcss": "4.3.0",
+    "vite": "8.0.14"
   },
   "engines": {
     "node": ">=24.14.0"
