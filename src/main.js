@@ -19,7 +19,9 @@ btnInfo.addEventListener('click', () => {
 });
 
 function validateForm() {
-  const startDate = startDateInput.value ? new Date(startDateInput.value) : null;
+  const startDate = startDateInput.value
+    ? new Date(startDateInput.value)
+    : null;
   const endDate = endDateInput.value ? new Date(endDateInput.value) : null;
   const floor = floorInput.value.trim();
 
@@ -29,7 +31,11 @@ function validateForm() {
     valid = false;
   }
 
-  if (startDate && endDate && differenceInWeeks(endDate, startDate) > MAX_WEEK_SIZE) {
+  if (
+    startDate &&
+    endDate &&
+    differenceInWeeks(endDate, startDate) > MAX_WEEK_SIZE
+  ) {
     dateError.classList.remove('hidden');
     valid = false;
   } else {
@@ -97,7 +103,9 @@ function generatePDF(rows, floor) {
   doc.addImage(img, 'png', pageSize.getWidth() - 78, 5, 68, 25);
 
   autoTable(doc, {
-    head: [{ week: 'Woche', tenant: 'Mietpartei', completed: 'Erledigt durch/am' }],
+    head: [
+      { week: 'Woche', tenant: 'Mietpartei', completed: 'Erledigt durch/am' },
+    ],
     body: rows,
     styles: { valign: 'middle', cellPadding: 0.4, fontSize: 10 },
     startY: 32,
