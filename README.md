@@ -2,9 +2,10 @@
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
-The app to create the staircase cleaning plan.
-
+Creates the staircase cleaning plan for your house.
 Built with plain JavaScript, [Tailwind CSS](https://tailwindcss.com/) and [daisyUI](https://daisyui.com/).
+
+This app is available at [treppenhausreinigung-creator.inpercima.net/](https://treppenhausreinigung-creator.inpercima.net/).
 
 ## Prerequisites
 
@@ -12,47 +13,58 @@ Built with plain JavaScript, [Tailwind CSS](https://tailwindcss.com/) and [daisy
 
 * `node 24.16.0` or higher in combination with
   * `npm 11.13.0` or higher or
-  * `pnpm 11.3.0` or higher, used in this repository
+  * `pnpm 11.14.0` or higher, used in this repository
+
+Install pnpm by running:
+
+```bash
+npm install -g pnpm@11.14.0
+```
+
+### Info for npm and pnpm
+
+This repo uses `pnpm` as package manager.
+You can also use `npm` for your local work but changes will be made by `pnpm` only.
 
 ## Getting started
 
 ```bash
 # clone project
 git clone https://github.com/inpercima/treppenhausreinigung-creator/
+
+# navigate to project
 cd treppenhausreinigung-creator
 
 # install dependencies
 pnpm install
 ```
 
-## Usage
+## Development Mode
 
-### Run in development mode
+### Running in development mode
 
 ```bash
-# starts a dev server with hot reload, reachable on http://localhost:5173/
 pnpm start
 ```
 
-### Build
+The application will be available at [http://localhost:5173/](http://localhost:5173/) and automatically reload when you make changes to the source code.
+
+## Production Mode
+
+### Building for production
 
 ```bash
-# build for production, output in dist/
 pnpm build
-
-# preview the production build locally
-pnpm preview
 ```
 
-### Lint
+Creating an optimized bundle in `dist/`.
 
-```bash
-pnpm lint
-```
-
-### Tests
+## Testing and linting
 
 ```bash
 # e2e (requires dev server running)
 npx cypress open
+
+# lint files
+pnpm lint
 ```
