@@ -13,12 +13,12 @@
   },
   "description": "The app to create the staircase cleaning plan.",
   "devDependencies": {
-    "@biomejs/biome": "2.5.4",
+    "@biomejs/biome": "2.5.14",
     "@tailwindcss/vite": "4.3.3",
-    "cypress": "15.18.1",
-    "daisyui": "5.6.18",
+    "cypress": "16.1.0",
+    "daisyui": "5.7.46",
     "tailwindcss": "4.3.3",
-    "vite": "8.0.16"
+    "vite": "8.3.1"
   },
   "engines": {
     "node": ">=24.16.0"
