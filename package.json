@@ -9,16 +9,16 @@
   "dependencies": {
     "date-fns": "4.4.0",
     "jspdf": "4.2.1",
-    "jspdf-autotable": "5.0.8"
+    "jspdf-autotable": "5.0.9"
   },
   "description": "The app to create the staircase cleaning plan.",
   "devDependencies": {
-    "@biomejs/biome": "2.5.14",
+    "@biomejs/biome": "2.6.2",
     "@tailwindcss/vite": "4.3.3",
-    "cypress": "16.1.0",
-    "daisyui": "5.7.46",
+    "cypress": "16.2.0",
+    "daisyui": "5.7.50",
     "tailwindcss": "4.3.3",
-    "vite": "8.3.1"
+    "vite": "8.3.5"
   },
   "engines": {
     "node": ">=24.16.0"
