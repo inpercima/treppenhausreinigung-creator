@@ -13,19 +13,27 @@
   },
   "description": "The app to create the staircase cleaning plan.",
   "devDependencies": {
-    "@biomejs/biome": "2.6.2",
-    "@tailwindcss/vite": "4.3.3",
-    "cypress": "16.2.0",
-    "daisyui": "5.7.50",
-    "tailwindcss": "4.3.3",
-    "vite": "8.3.5"
+    "@biomejs/biome": "2.6.8",
+    "@tailwindcss/vite": "4.3.5",
+    "cypress": "16.3.0",
+    "daisyui": "5.8.1",
+    "tailwindcss": "4.3.5",
+    "vite": "8.3.8"
   },
   "engines": {
-    "node": ">=24.16.0"
+    "node": ">=24"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^26.0.0",
+      "onFail": "download"
+    }
   },
   "homepage": "https://treppenhausreinigung-creator.inpercima.net/",
   "license": "MIT",
   "name": "treppenhausreinigung-creator",
+  "packageManager": "pnpm@12.21.0",
   "private": true,
   "repository": "https://github.com/inpercima/treppenhausreinigung-creator/",
   "scripts": {
